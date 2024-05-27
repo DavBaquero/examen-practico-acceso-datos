@@ -36,7 +36,7 @@ public class RepoTest {
      * Completa la definicion y el mapping
      * de la clase MagicalItem a la tabla t_items.
      * El id de esta clase ha de seguir una estrategia Identity
-     *//*
+     */
 
 
 	@Test
