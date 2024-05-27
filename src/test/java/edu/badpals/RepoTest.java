@@ -3,12 +3,12 @@ package edu.badpals;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import com.google.inject.Inject;
+
 
 import edu.badpals.dominio.MagicalItem;
 import edu.badpals.dominio.Wizard;
-import edu.badpals.repository.Repositorio;
 import io.quarkus.test.junit.QuarkusTest;
+import jakarta.inject.Inject;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 
@@ -18,8 +18,8 @@ public class RepoTest {
     @PersistenceContext
 	EntityManager em;
 
-	//@Inject
-	//Repositorio repo;
+	@Inject
+	Repositorio repo;
 
 	// @Inject
     // ServiceItem servicio;
@@ -75,7 +75,7 @@ public class RepoTest {
 	 * de la clase Order a la tabla t_orders
 	 * El id de esta clase ha de seguir una estrategia
 	 * Identity
-	 *//* 
+	 *//*
 	@Test
 	public void test_mapping_order() {
 		Order pedido = em.find(Order.class, 1L);
@@ -92,7 +92,7 @@ public class RepoTest {
 	 * Utiliza el código:
 	 * @Inject
 	 * Repositorio repo;
-	 *//* 
+	 */
 	@Test
 	public void test_repositorio_existe() {
 		Assertions.assertThat(repo).isNotNull();
