@@ -1,3 +1,5 @@
+package edu.badpals;
+import io.quarkus.test.junit.QuarkusTest;
 
 @QuarkusTest
 public class RepoTest {
@@ -47,7 +49,7 @@ public class RepoTest {
 	 * La anotacion jakarta.persistence para mapear 
 	 * a una tabla una propiedad Enum es
 	 * 	@Enumerated(EnumType.STRING)
-	 *//* 
+	 */
 	@Test
 	public void test_mapping_wizard() {
 		Wizard squib = em.find(Wizard.class, "Marius Black");
