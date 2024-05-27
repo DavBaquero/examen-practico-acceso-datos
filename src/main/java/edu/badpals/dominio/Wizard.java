@@ -1,5 +1,6 @@
 package edu.badpals.dominio;
 
+import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -9,17 +10,17 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "t_wizards")
-public class Wizard {
+public class Wizard extends PanacheEntityBase{
     @Id
     @Column(name = "wizard_name", unique = true)
-    private String nombre;
+    private String nombre = "";
 
     @Column(name = "wizard_dexterity")
     private int destreza;
 
     @Column(name = "wizard_person")
     @Enumerated(EnumType.STRING)
-    private String persona;
+    private person person;
 
     public Wizard() {
     }
@@ -40,16 +41,16 @@ public class Wizard {
         this.destreza = destreza;
     }
 
-    public String getPersona() {
-        return persona;
-    }
-
-    public void setPersona(String persona) {
-        this.persona = persona;
-    }
-
     public String toString(){
-        return this.getNombre() + " " + this.getDestreza() + " " + this.getPersona();
+        return this.getNombre() + " " + this.getDestreza() + " " + this.getPerson();
+    }
+
+    public person getPerson() {
+        return person;
+    }
+
+    public void setPerson(person person) {
+        this.person = person;
     }
 
 }

@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import com.google.inject.Inject;
 
+import edu.badpals.dominio.MagicalItem;
 import edu.badpals.dominio.Wizard;
 import edu.badpals.repository.Repositorio;
 import io.quarkus.test.junit.QuarkusTest;
@@ -35,9 +36,9 @@ public class RepoTest {
      * Completa la definicion y el mapping
      * de la clase MagicalItem a la tabla t_items.
      * El id de esta clase ha de seguir una estrategia Identity
-     */
+     *//*
 
-/* 
+
 	@Test
 	public void test_mapping_MagicalItem() {
 		MagicalItem elixir = em.find(MagicalItem.class, 2L);
