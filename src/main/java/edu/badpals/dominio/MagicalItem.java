@@ -7,15 +7,15 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import java.math.BigInteger;
+
 
 @Entity
 @Table(name="t_items")
 public class MagicalItem extends PanacheEntityBase{
     
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
-        @Column(name = "item_id")
-        private BigInteger item;
+        @Column(name = "item_id", unique = true)
+        private Long item;
 
         @Column(name = "item_name")
         private String nombre ="";
@@ -30,7 +30,7 @@ public class MagicalItem extends PanacheEntityBase{
         public MagicalItem() {
         }
 
-        public BigInteger getId() {
+        public Long getId() {
             return item;
         }
 

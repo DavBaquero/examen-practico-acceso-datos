@@ -1,7 +1,4 @@
 package edu.badpals.dominio;
-
-import java.math.BigInteger;
-
 import org.hibernate.cache.spi.support.AbstractReadWriteAccess.Item;
 
 import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
@@ -11,7 +8,6 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
@@ -22,7 +18,7 @@ public class Order extends PanacheEntityBase{
 
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
         @Column(name = "ord_id")
-        private BigInteger id;
+        private Long id;
 
         @OneToOne
         @JoinColumn(name = "ord_wizard")
@@ -40,7 +36,7 @@ public class Order extends PanacheEntityBase{
             this.item = item;
         }
 
-        public BigInteger getId() {
+        public Long getId() {
             return id;
         }
         
