@@ -13,8 +13,8 @@ import java.math.BigInteger;
 @Table(name="t_items")
 public class MagicalItem extends PanacheEntityBase{
     
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-        @Column(name = "item_id", unique = true)
+    @Id @GeneratedValue(strategy = GenerationType.AUTO)
+        @Column(name = "item_id")
         private BigInteger item;
 
         @Column(name = "item_name")
@@ -32,10 +32,6 @@ public class MagicalItem extends PanacheEntityBase{
 
         public BigInteger getId() {
             return item;
-        }
-
-        public void setId(BigInteger item) {
-            this.item = item;
         }
 
         public String getNombre() {
