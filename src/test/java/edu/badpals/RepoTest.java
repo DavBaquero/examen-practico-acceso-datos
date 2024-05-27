@@ -1,14 +1,24 @@
 package edu.badpals;
+
+import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.Test;
+
+import com.google.inject.Inject;
+
+import edu.badpals.dominio.Wizard;
+import edu.badpals.repository.Repositorio;
 import io.quarkus.test.junit.QuarkusTest;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
 
 @QuarkusTest
 public class RepoTest {
-/* 
+
     @PersistenceContext
 	EntityManager em;
 
-	// @Inject
-	// Repositorio repo;
+	//@Inject
+	//Repositorio repo;
 
 	// @Inject
     // ServiceItem servicio;
