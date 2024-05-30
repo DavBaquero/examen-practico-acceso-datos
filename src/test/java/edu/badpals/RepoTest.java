@@ -3,9 +3,8 @@ package edu.badpals;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-
-
 import edu.badpals.dominio.MagicalItem;
+import edu.badpals.dominio.Order;
 import edu.badpals.dominio.Wizard;
 import io.quarkus.test.junit.QuarkusTest;
 import jakarta.inject.Inject;
@@ -75,7 +74,7 @@ public class RepoTest {
 	 * de la clase Order a la tabla t_orders
 	 * El id de esta clase ha de seguir una estrategia
 	 * Identity
-	 *//*
+	 */
 	@Test
 	public void test_mapping_order() {
 		Order pedido = em.find(Order.class, 1L);
@@ -101,7 +100,7 @@ public class RepoTest {
 	/**
 	 * Implementa el metodo loadWizard del repositorio
 	 * que devuelve un Optional del mago/a con el nombre indicado
-	 *//* 
+	 */
 	
 	@Test
 	public void test_load_wizard() {
@@ -124,7 +123,7 @@ public class RepoTest {
 	 * 
 	 * El metodo devueve el primer item cuyo nombre
 	 * coincida con el especificado.
-	 *//* 
+	 */
 	@Test
 	public void test_load_item() {
 		Assertions.assertThat(repo).isNotNull();

@@ -1,6 +1,5 @@
 package edu.badpals.dominio;
 
-import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -10,7 +9,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "t_wizards")
-public class Wizard extends PanacheEntityBase{
+public class Wizard{
     @Id
     @Column(name = "wizard_name", unique = true)
     private String nombre = "";

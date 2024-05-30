@@ -1,6 +1,5 @@
 package edu.badpals.dominio;
 
-import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -11,7 +10,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name="t_items")
-public class MagicalItem extends PanacheEntityBase{
+public class MagicalItem{
     
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
         @Column(name = "item_id", unique = true)
@@ -34,11 +33,11 @@ public class MagicalItem extends PanacheEntityBase{
             return item;
         }
 
-        public String getNombre() {
+        public String getName() {
             return nombre;
         }
 
-        public void setNombre(String nombre) {
+        public void setName(String nombre) {
             this.nombre = nombre;
         }
 
@@ -59,7 +58,7 @@ public class MagicalItem extends PanacheEntityBase{
         }
 
     public String toString(){
-        return this.getId() + " "+ this.getNombre() + " " + this.getQuality() + " " + this.getTipo();
+        return this.getId() + " "+ this.getName() + " " + this.getQuality() + " " + this.getTipo();
     }
 
 }

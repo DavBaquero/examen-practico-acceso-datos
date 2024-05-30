@@ -1,20 +1,19 @@
 package edu.badpals.dominio;
-import org.hibernate.cache.spi.support.AbstractReadWriteAccess.Item;
 
-import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 
 @Entity
 @Table(name = "t_orders")
-public class Order extends PanacheEntityBase{
+public class Order{
 
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
         @Column(name = "ord_id")
@@ -24,16 +23,16 @@ public class Order extends PanacheEntityBase{
         @JoinColumn(name = "ord_wizard")
         private Wizard wizard;
 
-        @OneToOne
+        @ManyToOne
         @JoinColumn(name = "ord_item", nullable = true, updatable = false)
-        private Item item;
+        private MagicalItem MagicalItem;
 
         public Order() {
         }
 
-        public Order(Wizard wizard, Item item) {
+        public Order(Wizard wizard, MagicalItem MagicalItem) {
             this.wizard = wizard;
-            this.item = item;
+            this.MagicalItem = MagicalItem;
         }
 
         public Long getId() {
@@ -49,12 +48,12 @@ public class Order extends PanacheEntityBase{
             this.wizard = wizard;
         }
 
-        public Item getItem() {
-            return item;
+        public MagicalItem getMagicalItem() {
+            return MagicalItem;
         }
         
         @Override
         public String toString(){
-            return this.getWizard() + " " + this.getItem();
+            return this.getWizard().getNombre() + " " + this.getMagicalItem().getName();
         }
 }
