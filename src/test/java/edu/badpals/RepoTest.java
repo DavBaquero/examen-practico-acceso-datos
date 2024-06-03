@@ -1,6 +1,7 @@
 package edu.badpals;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -12,6 +13,8 @@ import io.quarkus.test.junit.QuarkusTest;
 import jakarta.inject.Inject;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
+import jakarta.persistence.TypedQuery;
+import jakarta.transaction.Transactional;
 
 @QuarkusTest
 public class RepoTest {
@@ -189,7 +192,7 @@ public class RepoTest {
 	 * El pedido se guarda en la base de datos.
 	 *  
 	 * Los magos/as mudblood NO pueden comprar un item.
-	 *//* 
+	 */
 
 	@Test
 	@Transactional
