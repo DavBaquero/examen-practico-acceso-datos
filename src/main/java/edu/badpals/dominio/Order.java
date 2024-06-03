@@ -48,12 +48,12 @@ public class Order{
             this.wizard = wizard;
         }
 
-        public MagicalItem getMagicalItem() {
+        public MagicalItem getItem() {
             return MagicalItem;
         }
         
         @Override
         public String toString(){
-            return this.getWizard().getNombre() + " " + this.getMagicalItem().getName();
+            return this.getWizard().getName() + " " + this.getItem().getName();
         }
 }

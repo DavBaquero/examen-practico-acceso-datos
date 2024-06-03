@@ -34,7 +34,7 @@ public class Repositorio {
 
     public Optional<Wizard> crearWizard(Wizard wizard){
         wizardRepo.persist(wizard);
-        return this.loadWizard(wizard.getNombre());
+        return this.loadWizard(wizard.getName());
     }
 
     public void deleteWizard(String wizard){

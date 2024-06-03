@@ -24,7 +24,7 @@ public class Wizard{
     public Wizard() {
     }
 
-    public String getNombre() {
+    public String getName() {
         return nombre;
     }
 
@@ -41,7 +41,7 @@ public class Wizard{
     }
 
     public String toString(){
-        return this.getNombre() + " " + this.getDestreza() + " " + this.getPerson();
+        return this.getName() + " " + this.getDestreza() + " " + this.getPerson();
     }
 
     public Person getPerson() {
