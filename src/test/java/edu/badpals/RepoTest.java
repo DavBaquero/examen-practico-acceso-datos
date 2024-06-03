@@ -166,7 +166,7 @@ public class RepoTest {
 	 * con el nombre indicado
 	 * 
 	 * Ojo que el nombre del item no es la clave primaria.
-	 *//* 
+	 */
 	@Test
 	public void test_load_items() {
 		Assertions.assertThat(repo).isNotNull();
