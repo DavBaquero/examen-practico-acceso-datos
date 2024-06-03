@@ -3,6 +3,7 @@ package edu.badpals;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -65,6 +66,18 @@ public class Repositorio {
                 }
         }
         return Optional.empty();
+    }
+
+    public List<MagicalItem> loadItems(String name){
+        List<MagicalItem> todosItems = itemRepo.listAll();
+        List<MagicalItem> itemNombres = new ArrayList<>();
+        for (MagicalItem item: todosItems){
+            String nombre = item.getName();
+            if (nombre.equals(name)){
+                itemNombres.add(item);
+            }
+        }
+        return itemNombres;
     }
 
 
