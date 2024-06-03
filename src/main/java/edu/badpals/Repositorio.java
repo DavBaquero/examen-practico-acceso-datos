@@ -53,6 +53,27 @@ public class Repositorio {
         return Optional.empty();
     }
 
+    public Optional<MagicalItem> loadItem(MagicalItem item){
+        List<MagicalItem> todosItems = itemRepo.listAll();
+        for (MagicalItem it: todosItems){
+            String id = it.getId() + "";
+            if (it.getName().equals(item.getName()) 
+                && it.getQuality() == item.getQuality()
+                && it.getTipo().equals(item.getTipo())){
+                    Optional<MagicalItem> items = itemRepo.findByIdOptional(id);
+                    return items.isPresent() ? Optional.of(items.get()) : crearItem(item.getName(), item.getQuality(), item.getTipo());
+                }
+        }
+        return Optional.empty();
+    }
+
+
+    public Optional<MagicalItem> crearItem(String item_nom, int quality, String type){
+        MagicalItem item = new MagicalItem();
+        itemRepo.persist(item);
+        return this.loadItem(item);
+    }
+
     public Optional<MagicalItem> crearItem(MagicalItem item){
         itemRepo.persist(item);
         return this.loadItem(item.getName());

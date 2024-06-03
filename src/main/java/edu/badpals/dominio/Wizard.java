@@ -19,7 +19,7 @@ public class Wizard{
 
     @Column(name = "wizard_person")
     @Enumerated(EnumType.STRING)
-    private person person;
+    private Person person;
 
     public Wizard() {
     }
@@ -44,11 +44,11 @@ public class Wizard{
         return this.getNombre() + " " + this.getDestreza() + " " + this.getPerson();
     }
 
-    public person getPerson() {
+    public Person getPerson() {
         return person;
     }
 
-    public void setPerson(person person) {
+    public void setPerson(Person person) {
         this.person = person;
     }
 

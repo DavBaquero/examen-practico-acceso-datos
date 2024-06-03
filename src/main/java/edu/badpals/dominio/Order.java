@@ -15,15 +15,15 @@ import jakarta.persistence.Table;
 @Table(name = "t_orders")
 public class Order{
 
-    @Id @GeneratedValue(strategy = GenerationType.AUTO)
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
         @Column(name = "ord_id")
         private Long id;
 
-        @OneToOne
+        @ManyToOne
         @JoinColumn(name = "ord_wizard")
         private Wizard wizard;
 
-        @ManyToOne
+        @OneToOne
         @JoinColumn(name = "ord_item", nullable = true, updatable = false)
         private MagicalItem MagicalItem;
 

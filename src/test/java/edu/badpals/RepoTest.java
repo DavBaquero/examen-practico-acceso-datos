@@ -145,7 +145,7 @@ public class RepoTest {
      * name, quality y type que el de la peticion
      * y no cualquier otro item de la base de datos
      * que tenga sólo el mismo nombre.
-	 *//* 
+	 */
 	@Test
 	public void test_load_item_equal() {
 		Assertions.assertThat(repo).isNotNull();

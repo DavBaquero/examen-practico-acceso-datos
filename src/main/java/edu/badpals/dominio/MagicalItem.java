@@ -29,6 +29,12 @@ public class MagicalItem{
         public MagicalItem() {
         }
 
+        public MagicalItem(String nombre, int quality, String tipo) {
+            this.nombre = nombre;
+            this.quality = quality;
+            this.tipo = tipo;
+        }
+
         public Long getId() {
             return item;
         }
