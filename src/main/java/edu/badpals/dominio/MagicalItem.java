@@ -12,7 +12,7 @@ import jakarta.persistence.Table;
 @Table(name="t_items")
 public class MagicalItem{
     
-    @Id @GeneratedValue(strategy = GenerationType.AUTO)
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
         @Column(name = "item_id", unique = true)
         private Long item;
 
@@ -55,16 +55,16 @@ public class MagicalItem{
             this.quality = quality;
         }
 
-        public String getTipo() {
+        public String getType() {
             return tipo;
         }
 
-        public void setTipo(String tipo) {
+        public void setType(String tipo) {
             this.tipo = tipo;
         }
 
     public String toString(){
-        return this.getId() + " "+ this.getName() + " " + this.getQuality() + " " + this.getTipo();
+        return this.getId() + " "+ this.getName() + " " + this.getQuality() + " " + this.getType();
     }
 
 }
