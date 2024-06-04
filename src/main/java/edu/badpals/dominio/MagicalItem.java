@@ -17,22 +17,22 @@ public class MagicalItem{
         private Long item;
 
         @Column(name = "item_name")
-        private String nombre ="";
+        private String name ="";
 
         @Column(name = "item_quality")
         private int quality;
 
         @Column(name = "item_type")
-        private String tipo = "";
+        private String type = "";
 
 
         public MagicalItem() {
         }
 
         public MagicalItem(String nombre, int quality, String tipo) {
-            this.nombre = nombre;
+            this.name = nombre;
             this.quality = quality;
-            this.tipo = tipo;
+            this.type = tipo;
         }
 
         public Long getId() {
@@ -40,11 +40,11 @@ public class MagicalItem{
         }
 
         public String getName() {
-            return nombre;
+            return name;
         }
 
         public void setName(String nombre) {
-            this.nombre = nombre;
+            this.name = nombre;
         }
 
         public int getQuality() {
@@ -56,11 +56,11 @@ public class MagicalItem{
         }
 
         public String getType() {
-            return tipo;
+            return type;
         }
 
         public void setType(String tipo) {
-            this.tipo = tipo;
+            this.type = tipo;
         }
 
     public String toString(){
