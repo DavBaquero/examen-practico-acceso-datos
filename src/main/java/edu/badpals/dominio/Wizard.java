@@ -12,7 +12,7 @@ import jakarta.persistence.Table;
 public class Wizard{
     @Id
     @Column(name = "wizard_name", unique = true)
-    private String nombre = "";
+    private String name = "";
 
     @Column(name = "wizard_dexterity")
     private int destreza;
@@ -25,11 +25,11 @@ public class Wizard{
     }
 
     public String getName() {
-        return nombre;
+        return name;
     }
 
     public void setNombre(String nombre) {
-        this.nombre = nombre;
+        this.name = nombre;
     }
 
     public int getDestreza() {

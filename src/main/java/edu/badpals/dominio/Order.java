@@ -51,7 +51,13 @@ public class Order{
         public MagicalItem getItem() {
             return MagicalItem;
         }
+
         
+        
+        public void setItem(MagicalItem magicalItem) {
+            MagicalItem = magicalItem;
+        }
+
         @Override
         public String toString(){
             return this.getWizard().getName() + " " + this.getItem().getName();
