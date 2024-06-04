@@ -224,7 +224,7 @@ public class RepoTest {
 	/**
 	 * Implementa el metodo createItem() del repositorio
 	 * que crea un item en la base de datos.
-	 *//* 
+	 */
 	@Test
 	@Transactional
 	public void test_create_item() {
