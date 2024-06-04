@@ -12,6 +12,7 @@ import edu.badpals.dominio.*;
 import edu.badpals.repository.MagicalItemRepository;
 import edu.badpals.repository.OrderRepository;
 import edu.badpals.repository.WizardRepository;
+import io.quarkus.hibernate.orm.panache.PanacheQuery;
 
 @ApplicationScoped
 public class Repositorio {
@@ -86,10 +87,6 @@ public class Repositorio {
         return this.loadItem(item.getName());
     }
 
-    public void deleteItem(String nombre){
-        itemRepo.deleteById(nombre);
-    }
-
     @Transactional
     public Optional<MagicalItem> createItem(String item_nom, int quality, String type){
         MagicalItem item = new MagicalItem(item_nom, quality, type);
@@ -100,6 +97,16 @@ public class Repositorio {
     @Transactional
     public void createItems(List<MagicalItem> items){
         this.itemRepo.persist(items);
+    }
+
+    @Transactional
+    public void deleteItem(MagicalItem item){
+        PanacheQuery<MagicalItem> targetQuery = this.itemRepo.find("name = ?1 and quality = ?2 and type = ?3", 
+                                                                    item.getName(), item.getQuality(), item.getType());
+        Optional<MagicalItem> resultQuery = targetQuery.firstResultOptional();
+        if(resultQuery.isPresent()){
+            this.itemRepo.delete(resultQuery.get());
+        }
     }
 
     @Transactional
