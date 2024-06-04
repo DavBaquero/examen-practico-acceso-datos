@@ -81,13 +81,6 @@ public class Repositorio {
         return itemNombres;
     }
 
-    @Transactional
-    public Optional<MagicalItem> createItem(String item_nom, int quality, String type){
-        MagicalItem item = new MagicalItem(item_nom, quality, type);
-        itemRepo.persist(item);
-        return this.loadItem(item);
-    }
-
     public Optional<MagicalItem> createItem(MagicalItem item){
         itemRepo.persist(item);
         return this.loadItem(item.getName());
@@ -95,6 +88,18 @@ public class Repositorio {
 
     public void deleteItem(String nombre){
         itemRepo.deleteById(nombre);
+    }
+
+    @Transactional
+    public Optional<MagicalItem> createItem(String item_nom, int quality, String type){
+        MagicalItem item = new MagicalItem(item_nom, quality, type);
+        itemRepo.persist(item);
+        return this.loadItem(item);
+    }
+
+    @Transactional
+    public void createItems(List<MagicalItem> items){
+        this.itemRepo.persist(items);
     }
 
     @Transactional
