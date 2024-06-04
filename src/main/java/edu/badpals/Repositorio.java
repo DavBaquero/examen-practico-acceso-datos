@@ -2,6 +2,7 @@ package edu.badpals;
 
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
+import jakarta.transaction.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -94,6 +95,21 @@ public class Repositorio {
 
     public void deleteItem(String nombre){
         itemRepo.deleteById(nombre);
+    }
+
+    @Transactional
+    public Optional<Order> placeOrder(String wizard, String item){
+        Order order = null;
+        Optional<Wizard> wizards = this.wizardRepo.findByIdOptional(wizard);
+        Optional<MagicalItem> items = loadItem(item);
+        if (wizards.isPresent() && items.isPresent()
+            && ! wizards.get().getPerson().equals(Person.MUDBLOOD)){
+            order = new Order();
+            order.setWizard(wizards.get());
+            order.setItem(items.get());
+            this.orderRepo.persist(order);
+        }
+        return Optional.ofNullable(order);
     }
 
 }
