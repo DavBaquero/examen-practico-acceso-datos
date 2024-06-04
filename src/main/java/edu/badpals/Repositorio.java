@@ -49,7 +49,7 @@ public class Repositorio {
             String id = item.getId() + "";
             if (name.equals(item_nom)){
                 Optional<MagicalItem> items = itemRepo.findByIdOptional(id);
-                return items.isPresent() ? Optional.of(items.get()) : crearItem(item); 
+                return items.isPresent() ? Optional.of(items.get()) : createItem(item); 
             }
         }
         return Optional.empty();
@@ -61,9 +61,9 @@ public class Repositorio {
             String id = it.getId() + "";
             if (it.getName().equals(item.getName()) 
                 && it.getQuality() == item.getQuality()
-                && it.getTipo().equals(item.getTipo())){
+                && it.getType().equals(item.getType())){
                     Optional<MagicalItem> items = itemRepo.findByIdOptional(id);
-                    return items.isPresent() ? Optional.of(items.get()) : crearItem(item.getName(), item.getQuality(), item.getTipo());
+                    return items.isPresent() ? Optional.of(items.get()) : createItem(item.getName(), item.getQuality(), item.getType());
                 }
         }
         return Optional.empty();
@@ -81,14 +81,14 @@ public class Repositorio {
         return itemNombres;
     }
 
-
-    public Optional<MagicalItem> crearItem(String item_nom, int quality, String type){
-        MagicalItem item = new MagicalItem();
+    @Transactional
+    public Optional<MagicalItem> createItem(String item_nom, int quality, String type){
+        MagicalItem item = new MagicalItem(item_nom, quality, type);
         itemRepo.persist(item);
         return this.loadItem(item);
     }
 
-    public Optional<MagicalItem> crearItem(MagicalItem item){
+    public Optional<MagicalItem> createItem(MagicalItem item){
         itemRepo.persist(item);
         return this.loadItem(item.getName());
     }
